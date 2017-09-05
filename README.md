@@ -1,5 +1,5 @@
-# gulpEnv_v5
-# https://github.com/delduked/gulpEnv_v4
+# gulpEnv
+# https://github.com/delduked/gulpEnv.git
 My personal Gul Development enironment
 
 you must install these first in this order for gulp to work

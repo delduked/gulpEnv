@@ -9,7 +9,9 @@ var concat = require('gulp-concat');
 gulp.task('pug', function(){
    return gulp.src('site/pug/index.pug')
       // Specifies which file is will be processed into html
-      .pipe(pug())
+      .pipe(pug({
+          pretty: true
+      }))
       // Compiles the pug file into HTML
       .pipe(gulp.dest('site'))
       // Specifies where the processed HTML file will reside

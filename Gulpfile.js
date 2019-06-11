@@ -57,14 +57,13 @@ gulp.task('browserSync', function() {
 // BrowserSync for live reload on file saves
 
 // Combining all Gulp Tasks into one task
-gulp.task('default', ['pug','sass','browserSync','concat-js'], function(){
-   gulp.watch('site/pug/*.pug', ['pug']);
-   gulp.watch('site/css/*.sass', ['sass']);
-   gulp.watch('site/js/js-lib/*.js', ['concat-js']);
-   gulp.watch('site/*.html', browserSync.reload);
-   gulp.watch('site/css/*.css', browserSync.reload);
-   gulp.watch('site/img/*', browserSync.reload);
-   gulp.watch('site/js/*.js', browserSync.reload);
-   // Other watchers
-});
+gulp.task("default", gulp.series(['pug','sass','browserSync','concat-js'], function () {
+    gulp.watch('site/pug/*.pug', gulp.parallel(['pug']));
+    gulp.watch('site/css/*.sass', gulp.parallel(['sass']));
+    gulp.watch('site/js/js-lib/*.js', gulp.parallel(['concat-js']));
+    gulp.watch('site/pug/*.pug', gulp.parallel(browserSync.reload));
+    gulp.watch('site/pug/*.pug', gulp.parallel(browserSync.reload));
+    gulp.watch('site/pug/*.pug', gulp.parallel(browserSync.reload));
+    gulp.watch('site/pug/*.pug', gulp.parallel(browserSync.reload));
+}));
 // Combining all Gulp Tasks into one task
